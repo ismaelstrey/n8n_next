@@ -28,6 +28,10 @@ async function cronJob(): Promise<void> {
 export async function GET() {
     console.log('Executando GET');
     await cronJob()
-    NextResponse.json({ message: 'Hello, World!', statusCode: 200 });
+    return NextResponse.json({ success: true, message: 'Executando GET', statusCode: 200 }, {
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
+    });
 
 }
